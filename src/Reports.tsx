@@ -2,7 +2,7 @@
 
 import { ethers } from "ethers";
 import React from "react";
-import { useReportsQuery } from "./generated/graphql";
+//import { useReportsQuery } from "./generated/graphql";
 import {
     Table,
     Thead,
@@ -102,3 +102,7 @@ export const Reports: React.FC = () => {
         </div>
     );
 };
+function useReportsQuery(): [any, any] {
+    throw new Error("Function not implemented.");
+}
+

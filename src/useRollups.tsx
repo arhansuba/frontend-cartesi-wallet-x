@@ -4,28 +4,12 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useSetChain, useWallets } from "@web3-onboard/react";
 
-import {
-    CartesiDApp,
-    CartesiDApp__factory,
-    InputBox,
-    InputBox__factory,
-    EtherPortal,
-    EtherPortal__factory,
-    ERC20Portal,
-    ERC20Portal__factory,
-    ERC721Portal,
-    ERC721Portal__factory,
-    DAppAddressRelay,
-    DAppAddressRelay__factory,
-    ERC1155SinglePortal,
-    ERC1155SinglePortal__factory,
-    ERC1155BatchPortal,
-    ERC1155BatchPortal__factory
-} from "./generated/rollups";
+
 import { ConnectedChain } from "@web3-onboard/core";
 
 import configFile from "./config.json";
 import { JsonRpcSigner } from "@ethersproject/providers";
+import { CartesiDApp, DAppAddressRelay, InputBox, EtherPortal, ERC20Portal, ERC721Portal, ERC1155SinglePortal, ERC1155BatchPortal, CartesiDApp__factory, DAppAddressRelay__factory, InputBox__factory, EtherPortal__factory, ERC20Portal__factory, ERC721Portal__factory, ERC1155SinglePortal__factory, ERC1155BatchPortal__factory } from "@cartesi/rollups";
 
 const config: any = configFile;
 

@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import { useRollups } from "./useRollups";
 import { useWallets } from "@web3-onboard/react";
-import {
-  IERC1155__factory,
-  IERC20__factory,
-  IERC721__factory,
-} from "./generated/rollups";
+
 import { Tabs, TabList, TabPanels, TabPanel, Tab } from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
@@ -32,6 +28,7 @@ import { Text } from "@chakra-ui/react";
 import { Vouchers } from "./Vouchers";
 import { Notices } from "./Notices";
 import { Reports } from "./Reports";
+import { IERC20__factory, IERC721__factory } from "@cartesi/rollups";
 
 interface IInputPropos {
   dappAddress: string;

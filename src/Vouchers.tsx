@@ -2,7 +2,7 @@
 
 import { BigNumber, ethers } from "ethers";
 import React, { useEffect } from "react";
-import { useVouchersQuery, useVoucherQuery } from "./src/graphql";
+//import { useVouchersQuery, useVoucherQuery } from "./src/graphql";
 import { useRollups } from "./useRollups";
 import {
     Table,
@@ -255,3 +255,13 @@ export const Vouchers: React.FC<IVoucherPropos> = (propos) => {
         </div>
     );
 };
+function useVouchersQuery(): [any, any] {
+    throw new Error("Function not implemented.");
+}
+
+function useVoucherQuery(arg0: {
+    variables: { voucherIndex: number; inputIndex: number; }; //, pause: !!voucherIdToFetch
+}): [any, any] {
+    throw new Error("Function not implemented.");
+}
+

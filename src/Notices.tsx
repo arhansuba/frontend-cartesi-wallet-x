@@ -2,7 +2,7 @@
 
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
-import { useNoticesQuery } from "./generated/graphql";
+//import { useNoticesQuery } from "./generated/graphql";
 import { useToast } from '@chakra-ui/react'
 import { Badge, Button } from '@chakra-ui/react'
 import {
@@ -159,3 +159,7 @@ export const Notices: React.FC = () => {
         </Box>
     );
 };
+function useNoticesQuery(): [any, any] {
+    throw new Error("Function not implemented.");
+}
+
