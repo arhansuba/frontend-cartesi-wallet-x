@@ -1,20 +1,24 @@
-
-
 import React from "react";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
 
 import { createRoot } from 'react-dom/client';
+
 const container = document.getElementById('root');
-const root = createRoot(container!); // createRoot(container!) if you use TypeScript
-root.render(
+const root = createRoot(container!);
+
+const renderApp = () => {
+  root.render(
     <React.StrictMode>
-        <ChakraProvider>
-            <App />
-        </ChakraProvider>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
     </React.StrictMode>
-);
+  );
+};
+
+renderApp();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
