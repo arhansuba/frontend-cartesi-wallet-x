@@ -1,8 +1,9 @@
-schema: ./graphql/schema.graphql
-documents: ./graphql/queries.graphql
+overwrite: true
+schema: "path/to/your/schema.graphql"
+documents: "src/**/*.graphql"
 generates:
-    ./src/generated/graphql/index.ts:
-        plugins:
-            - typescript
-            - typescript-operations
-            - typescript-urql
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
