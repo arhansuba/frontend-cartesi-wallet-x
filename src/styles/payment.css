@@ -1,0 +1,109 @@
+/* payment.css */
+
+/* General styles */
+.payment-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .payment-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .payment-header .payment-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .payment-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .payment-form input,
+  .payment-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .payment-form input:focus,
+  .payment-form select:focus {
+    border-color: #6c63ff;
+    outline: none;
+  }
+  
+  .payment-button {
+    padding: 12px 20px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .payment-button:hover {
+    background-color: #5946d2;
+  }
+  
+  .payment-history {
+    margin-top: 30px;
+  }
+  
+  .payment-history h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .payment-history ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .payment-history ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .payment-history ul li span {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .payment-history ul li span.date {
+    font-weight: bold;
+  }
+  
+  .payment-history ul li span.amount {
+    color: #6c63ff;
+    font-weight: bold;
+  }
+  

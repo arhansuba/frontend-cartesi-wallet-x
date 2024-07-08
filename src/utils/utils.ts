@@ -1,5 +1,5 @@
 import fs from "fs";
-import { Contract } from "./abi";
+import { Contract } from "./ABI/abi";
 
 /**
  * Read address from json file

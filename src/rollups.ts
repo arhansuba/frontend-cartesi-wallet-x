@@ -15,7 +15,7 @@ import {
 import { Argv } from "yargs";
 import { networks } from "./networks";
 import { Deployment, Contract } from "./abi";
-import { readAddressFromFile, readAllContractsFromDir } from "./utils";
+import { readAddressFromFile, readAllContractsFromDir } from "./utils/utils";
 
 export interface Args {
     dapp: string;

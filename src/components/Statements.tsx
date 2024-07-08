@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AccountWidget from './AccountWidget';
 import { useAccountStore } from '../stores/account';
-import HeroButton from './HeroButton';
+import HeroButton from './Button';
 
 const Statements: React.FC = () => {
   const store = useAccountStore();

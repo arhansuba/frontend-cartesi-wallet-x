@@ -1,89 +1,76 @@
-import { ethers } from 'ethers'
+import { ethers } from 'ethers';
 
 export default {
-  install: (app, option) => {
-    let provider, signer, account
+  install: (app, options) => {
+    let provider, signer, account;
 
+    // Function to connect the wallet
     const connect = async () => {
       try {
-        if (typeof window.ethereum == 'undefined') {
-          return { error: 'Metamask not found!' }
+        // Check if MetaMask is available
+        if (typeof window.ethereum === 'undefined') {
+          throw new Error('MetaMask not found!');
         }
 
-        // Add/Switch to mumbai Testnet
-        /*
-        const networkData = [
-          {
-            chainId: '0x13881',
-            chainName: 'Polygon-mumbai Testnet',
-            rpcUrls: ["https://rpc-mumbai.matic.today"],
-            blockExplorerUrls: ["https://explorer-mumbai.maticvigil.com"],
-            nativeCurrency: {
-              name: 'MATIC',
-              symbol: 'MATIC',
-              decimals: 18,
-            },
+        // Network configuration (example: Local Testnet)
+        const networkData = {
+          chainId: '0x7a69',
+          chainName: 'Local Testnet',
+          rpcUrls: ['http://127.0.0.1:8545/'],
+          nativeCurrency: {
+            name: 'Ethereum',
+            symbol: 'ETH',
+            decimals: 18,
           },
-        ]        
-        */
+        };
 
-        // Add/Switch to local testnet
-        const networkData = [
-          {
-            chainId: '0x7a69',
-            chainName: 'Local Testnet',
-            rpcUrls: ['http://127.0.0.1:8545/'],
-            nativeCurrency: {
-              name: 'Ethereum',
-              symbol: 'ETH',
-              decimals: 18,
-            },
-          },
-        ]
-
+        // Add the network to MetaMask
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
-          params: networkData,
-        })
+          params: [networkData],
+        });
+
+        // Switch to the added network
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: '0x7a69' }],
-        })
-        // A Web3Provider wraps a standard Web3 provider, which is
-        // what MetaMask injects as window.ethereum into each page
-        provider = new ethers.providers.Web3Provider(window.ethereum)
-        // MetaMask requires requesting permission to connect users accounts
-        const accounts = await provider.send('eth_requestAccounts', [])
-        // The MetaMask plugin also allows signing transactions to
-        // send ether and pay to change state within the blockchain.
-        // For this, you need the account signer...
-        signer = provider.getSigner()
-        account = accounts[0]
+        });
+
+        // Initialize provider and signer
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        const accounts = await provider.send('eth_requestAccounts', []);
+        signer = provider.getSigner();
+        account = accounts[0];
+
         return {
           provider,
           signer,
           account,
-        }
-      } catch (err) {
-        return { error: 'Error connecting wallet!' }
+        };
+      } catch (error) {
+        console.error('Error connecting wallet:', error);
+        return { error: 'Error connecting wallet!' };
       }
-    }
+    };
 
+    // Function to disconnect the wallet
     const disconnect = async () => {
-      provider = undefined
-      signer = undefined
-      account = undefined
-      return
-    }
+      provider = undefined;
+      signer = undefined;
+      account = undefined;
+      return;
+    };
 
-    const getWalletProvider = () => provider
-    const getWalletSigner = () => signer
-    const getWalletAccount = () => account
+    // Getters for provider, signer, and account
+    const getWalletProvider = () => provider;
+    const getWalletSigner = () => signer;
+    const getWalletAccount = () => account;
 
-    app.provide('connectWallet', connect)
-    app.provide('disconnectWallet', disconnect)
-    app.provide('getWalletProvider', getWalletProvider)
-    app.provide('getWalletSigner', getWalletSigner)
-    app.provide('getWalletAccount', getWalletAccount)
+    // Provide functions to the Vue app
+    app.provide('connectWallet', connect);
+    app.provide('disconnectWallet', disconnect);
+    app.provide('getWalletProvider', getWalletProvider);
+    app.provide('getWalletSigner', getWalletSigner);
+    app.provide('getWalletAccount', getWalletAccount);
   },
-}
+};

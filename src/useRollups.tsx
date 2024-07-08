@@ -7,7 +7,7 @@ import { useSetChain, useWallets } from "@web3-onboard/react";
 
 import { ConnectedChain } from "@web3-onboard/core";
 
-import configFile from "./config.json";
+import configFile from "./config/config.json";
 import { JsonRpcSigner } from "@ethersproject/providers";
 import { CartesiDApp, DAppAddressRelay, InputBox, EtherPortal, ERC20Portal, ERC721Portal, ERC1155SinglePortal, ERC1155BatchPortal, CartesiDApp__factory, DAppAddressRelay__factory, InputBox__factory, EtherPortal__factory, ERC20Portal__factory, ERC721Portal__factory, ERC1155SinglePortal__factory, ERC1155BatchPortal__factory } from "@cartesi/rollups";
 

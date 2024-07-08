@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import HeroButton from './HeroButton';
+//import { Link } from 'react-router-dom';
+import HeroButton from './Button';
 import AccountWidget from './AccountWidget';
 import { ethers } from 'ethers';
-import localhostAddresses from '../../deploys/localhost.json';
+//import localhostAddresses from '../../deploys/localhost.json';
 //import counterArtifact from '../../artifacts/contracts/counter.sol/Counter.json';
 import './LandingPage.css';
+import { Link } from '@chakra-ui/react';
 
 const LandingPage: React.FC = () => {
   const [counter, setCounter] = useState<number>(0);

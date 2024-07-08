@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { useConnectWallet, useSetChain } from "@web3-onboard/react";
-import configFile from "./config.json";
+import configFile from "./config/config.json";
 import {Button, Select, Box, Badge, Spacer, Heading, Text, Stack } from "@chakra-ui/react"
 
 const config: any = configFile;
